@@ -15,14 +15,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="软件管理"
-        app:titleTextColor="#dd2929"
+        app:titleTextColor="#111212"
         app:subtitle="可以对软件进行卸载"
         app:logo="@mipmap/ic_launcher"
-        android:background="#383333"
+        android:background="#6c72c6"
         ></android.support.v7.widget.Toolbar>
 
     <ListView
         android:layout_width="match_parent"
+        android:divider="#b5a6a6"
+        android:dividerHeight="2dp"
         android:layout_height="wrap_content"
         android:id="@+id/lv_app"/>
 </LinearLayout>

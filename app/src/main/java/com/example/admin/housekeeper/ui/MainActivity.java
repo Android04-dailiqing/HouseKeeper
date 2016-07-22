@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
         mView = (GridView) findViewById(R.id.gv_show);
         mToolbar = (Toolbar) findViewById(R.id.toolbar_main);
         mList = new ArrayList<>();
+        //把图标和文字封装成一个对象，传到Adapter，其实可以不用封装成对象，直接给Adapter中把这两个数字传送过去
         for (int i = 0; i < mIcon.length; i++) {
 
             mList.add(new Function(mName[i], mIcon[i]));
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
     }
 
     /**
-     * assets下的文件移动到包名下
+     * assets下的文件移动到包名下通过IO流进行复制
      *
      * @param
      */
@@ -102,10 +103,16 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (position){
+            //跳转到软件管理界面
             case 1:
                 intent = new Intent(MainActivity.this, AppActivity.class);
                 startActivity(intent);
                 break;
+            case 2:
+                intent = new Intent(MainActivity.this, PhoneInfoActivity.class);
+                startActivity(intent);
+                break;
+            //跳转到通讯录大全界面
             case 3:
                 try {
                     moveData();
@@ -119,12 +126,19 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
         }
     }
 
+    /**
+     * 给Toolebar添加菜单，加载到Toolbar里边
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main,menu);
         return true;
     }
-
+    /**
+     *Toolbar的点击事件
+     */
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         Toast.makeText(this,"点击了Toolbar",Toast.LENGTH_SHORT).show();

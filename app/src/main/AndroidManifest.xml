@@ -3,6 +3,8 @@
           package="com.example.admin.housekeeper">
 
     <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -26,6 +28,8 @@
         <activity android:name=".ui.ShowClassActivity">
         </activity>
         <activity android:name=".ui.AppActivity">
+        </activity>
+        <activity android:name=".ui.PhoneInfoActivity">
         </activity>
     </application>
 
